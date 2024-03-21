@@ -3784,4 +3784,21 @@
             scrollToElement(targetClass);
         }));
     }));
+    const words = [ "oil?", "coal?", "petrolium?" ];
+    const container = document.getElementById("word-container");
+    function printLetters(word, index) {
+        container.textContent = word.substring(0, index + 1);
+        const delay = Math.random() * .2 + .1;
+        if (index < word.length - 1) setTimeout((() => printLetters(word, index + 1)), delay * 1e3); else setTimeout((() => eraseLetters(word, word.length - 1)), 1e3);
+    }
+    function eraseLetters(word, index) {
+        container.textContent = word.substring(0, index);
+        if (index > 0) setTimeout((() => eraseLetters(word, index - 1)), 100); else setTimeout(printNextWord, 1e3);
+    }
+    let currentWordIndex = 0;
+    function printNextWord() {
+        currentWordIndex = (currentWordIndex + 1) % words.length;
+        printLetters(words[currentWordIndex], 0);
+    }
+    printLetters(words[currentWordIndex], 0);
 })();

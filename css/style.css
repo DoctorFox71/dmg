@@ -490,6 +490,10 @@ h6 {
   display: none;
 }
 
+.word-change {
+  color: #32a33c;
+}
+
 .about-us {
   background: #1F1752;
   padding: 150px 0;
