@@ -233,7 +233,7 @@
         }
     }
     function menuInit() {
-        if (document.querySelector(".icon-menu")) if (window.innerWidth <= 768) document.addEventListener("click", (function(e) {
+        if (document.querySelector(".icon-menu")) if (window.innerWidth <= 1001) document.addEventListener("click", (function(e) {
             if (bodyLockStatus && e.target.closest(".icon-menu,.menu-btn")) {
                 bodyLockToggle();
                 document.documentElement.classList.toggle("menu-open");
