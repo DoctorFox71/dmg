@@ -399,11 +399,9 @@ h6 {
 .main {
   position: relative;
   padding: 200px 0 150px 0;
-  min-height: 930px;
 }
 
 .main__text {
-  margin: 0 0 0 110px;
   -webkit-transform: translateZ(20px);
           transform: translateZ(20px);
 }
@@ -450,6 +448,26 @@ h6 {
   color: #F5F5F5;
 }
 
+.main__button:active {
+  background: #1F1752;
+  -webkit-transform: translate3d(1px, 1px, -10px);
+          transform: translate3d(1px, 1px, -10px);
+  -webkit-transition: all ease 0.1s;
+  transition: all ease 0.1s;
+}
+
+.main__button:hover::before {
+  background: #F5F5F5;
+}
+
+.main__button:hover span {
+  background: #F5F5F5;
+}
+
+.main__button:hover::after {
+  background: #F5F5F5;
+}
+
 .main__button span,
 .main ::after,
 .main ::before {
@@ -491,7 +509,7 @@ h6 {
 }
 
 .word-change {
-  color: #32a33c;
+  color: #f6e120;
 }
 
 .about-us {
@@ -587,6 +605,10 @@ h6 {
   height: 100%;
 }
 
+.swiper-slide-active {
+  overflow: hidden;
+}
+
 .about-us-bg-mob {
   display: none;
 }
@@ -669,6 +691,7 @@ h6 {
   font-weight: 700;
   color: #1F1752;
   padding: 0 65px 0 15px;
+  margin-bottom: 25px;
   cursor: pointer;
 }
 
@@ -1412,6 +1435,7 @@ h6 {
   .spollers__title {
     font-size: 0.875rem;
     padding: 0 45px 0 15px;
+    margin-bottom: 15px;
   }
 
   .spollers__title span {
@@ -1434,6 +1458,19 @@ h6 {
 
   .spollers__text {
     font-size: 0.875rem;
+  }
+
+  .spollers__title._spoller-active::before {
+    bottom: 9px;
+  }
+
+  .spollers__title._spoller-active::after {
+    bottom: -3px;
+    right: 1px;
+  }
+
+  .spollers__title._spoller-active span {
+    right: 13px;
   }
 }
 
