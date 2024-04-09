@@ -3786,7 +3786,7 @@
             scrollToElement(targetClass);
         }));
     }));
-    const words = [ "Привет", "Мир", "Пример", "Слова", "Эффект" ];
+    const words = [ "Energy, Commodities & Shipping" ];
     document.getElementById("word-container");
     const blinkingChar = document.getElementById("blinking-char");
     const wordElement = document.getElementById("word");
@@ -3794,19 +3794,14 @@
     function printLetters(word, index) {
         wordElement.textContent = word.substring(0, index + 1);
         const delay = Math.random() * .2 + .1;
-        if (index < word.length - 1) setTimeout((() => printLetters(word, index + 1)), delay * 1e3); else setTimeout((() => eraseLetters(word, word.length - 1)), 2e3);
+        if (index < word.length - 1) setTimeout((() => printLetters(word, index + 1)), delay * 900);
     }
-    function eraseLetters(word, index) {
-        wordElement.textContent = word.substring(0, index);
-        if (index > 0) setTimeout((() => eraseLetters(word, index - 1)), 100); else setTimeout(printNextWord, 1e3);
-    }
-    setInterval((() => {
+    const blinkingInterval = setInterval((() => {
         blinkingChar.style.visibility = blinkingChar.style.visibility === "hidden" ? "visible" : "hidden";
     }), 600);
-    function printNextWord() {
-        currentWordIndex = (currentWordIndex + 1) % words.length;
-        wordElement.textContent = "";
-        printLetters(words[currentWordIndex], 0);
-    }
+    setTimeout((() => {
+        clearInterval(blinkingInterval);
+        blinkingChar.style.visibility = "hidden";
+    }), 7e3);
     printLetters(words[currentWordIndex], 0);
 })();
